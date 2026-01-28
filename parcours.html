@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Parcours</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="fond2.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+    </video>
+<header>
+        <nav>
+            <a href='parcours.html' class="nav-active">Parcours BUT GEII</a>
+            <a href='alternance.html' >Alternance</a>
+            <a href='hobbies.html'>Centres d'interets</a>
+            <a href='compétences.html'>Compétences</a>
+        </nav>
+</header>
+ <a href='index.html' class="nav-icon" title="Accueil">
+        <i class="fas fa-home"></i>
+    </a>
+ <!-- Contact stacks: gauche (monte) -->
+<div class="contact-stack contact-left" aria-label="Contacts gauche">
+  <div class="marquee" aria-hidden="false">
+    <div class="icons">
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Contact stacks: droite (descend) -->
+<div class="contact-stack contact-right" aria-label="Contacts droite">
+  <div class="marquee" aria-hidden="false">
+    <div class="icons">
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon-link" href="mailto:aktoufhichem2002@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a class="icon-link" href="tel:+33751395064" title="Téléphone"><i class="fas fa-phone"></i></a>
+    </div>
+  </div>
+</div>
+
+<main class="parcours-container">
+  <!-- Menu vertical à gauche -->
+  <aside class="parcours-menu">
+    <button class="parcours-btn active" data-year="but1">BUT 1</button>
+    <button class="parcours-btn" data-year="but2">BUT 2</button>
+    <button class="parcours-btn" data-year="but3">BUT 3</button>
+  </aside>
+
+  <!-- Contenu à droite -->
+  <section class="parcours-content">
+    <div id="but1" class="parcours-panel active">
+      <h2>BUT 1 – Première année</h2>
+      <p>Une année tronc-commun qui permet de découvrir les bases des grands domaines du génie électrique et informatique industriel. On explore l'électronique, l'informatique, l'électrotechnique et l'automatisme pour acquérir des connaissances générales avant de se spécialiser.</p>
+
+      <!-- Boutons de projets BUT 1 -->
+      <div class="but1-projects">
+        <button class="project-btn active" data-project="sae-crse">
+          <i class="fas fa-microchip"></i> Projet 1: SAÉ CRSE
+        </button>
+        <button class="project-btn" data-project="armoire-indus">
+          <i class="fas fa-cogs"></i> Projet 2: SAÉ Armoire Indus
+        </button>
+      </div>
+
+      <!-- Contenu des projets -->
+      <div class="but1-project-content">
+        <div id="sae-crse" class="project-detail active">
+          <div class="project-wrapper">
+            <div class="project-text">
+              <h3>Projet : Robot suiveur de ligne</h3>
+              <p><strong>Objectif :</strong> Concevoir et réaliser un robot autonome capable de suivre une ligne au sol.</p>
+              <p><strong>Étapes du projet :</strong></p>
+              <ul class="project-points">
+                <li>Conception électronique sur KiCad</li>
+                <li>Calculs et dimensionnement : Choix des composants</li>
+                <li>Fabrication, brasage & Tests des cartes</li>
+                <li>Assemblage des cartes, moteurs, capteurs</li>
+                <li>Programmation en C++ sur microcontrôleur</li>
+                <li>Validation & optimisation : tests sur parcours, réglages PID éventuels</li>
+              </ul>
+            </div>
+            <div class="project-image">
+              <img src="robot.png" alt="Robot suiveur de ligne">
+            </div>
+          </div>
+        </div>
+
+        <div id="armoire-indus" class="project-detail">
+          <div class="project-wrapper">
+            <div class="project-text">
+              <h3>SAÉ Armoire Électrique Industrielle</h3>
+              <p><strong>Objectif :</strong> Câbler et mettre en service une armoire électrique industrielle complète à partir d'un schéma réalisé en théorie.</p>
+              <p><strong>Étapes du projet :</strong></p>
+              <ul class="project-points">
+                <li>Conception du schéma électrique</li>
+                <li>Choix du matériel et implantation des composants</li>
+                <li>Câblage de l'armoire</li>
+                <li>Habilitation électrique</li>
+                <li>Dépannage, tests, mesures et vérifications</li>
+                <li>Mise sous tension</li>
+              </ul>
+            </div>
+            <div class="project-image">
+              <img src="armoire.png" alt="Armoire électrique industrielle">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="but2" class="parcours-panel">
+      <h2>BUT 2 – Deuxième année</h2>
+      <p>Approfondissement des connaissances avec des spécialisations progressives (Automatisme et informatique industrielle). Mise en pratique des concepts à travers des projets plus complexes et des stages en entreprise.</p>
+
+      <!-- Boutons de projets BUT 2 -->
+      <div class="but2-projects">
+        <button class="project-btn-but2 active" data-project="prog-maquettes">
+          <i class="fas fa-cogs"></i> Programmation Maquettes
+        </button>
+        <button class="project-btn-but2" data-project="ihm-supervision">
+          <i class="fas fa-desktop"></i> IHM et Supervision
+        </button>
+      </div>
+
+      <!-- Contenu des projets BUT 2 -->
+      <div class="but2-project-content">
+        <div id="prog-maquettes" class="project-detail active">
+          <div class="project-wrapper">
+            <div class="project-text">
+              <h3>Projet : Programmation de différentes maquettes</h3>
+              <p><strong>Objectif :</strong> Programmer et gérer différentes maquettes contenant différents automates avec différents protocoles de communications.</p>
+              <p><strong>Étapes du projet :</strong></p>
+              <ul class="project-points">
+                <li>Étude des différents automates et leurs architectures</li>
+                <li>Apprentissage des protocoles de communication (Modbus, CAN, Profibus)</li>
+                <li>Programmation en langage ladder et structuré</li>
+                <li>Configuration des maquettes et connexions réseau</li>
+                <li>Tests de communication inter-automates</li>
+                <li>Optimisation et documentation des solutions</li>
+              </ul>
+            </div>
+            <div class="project-image">
+              <img src="automation.jpg" alt="Programmation des maquettes d'automatisation">
+            </div>
+          </div>
+        </div>
+
+        <div id="ihm-supervision" class="project-detail">
+          <div class="project-wrapper">
+            <div class="project-text">
+              <h3>Projet : IHM et Supervision</h3>
+              <p><strong>Objectif :</strong> Concevoir et développer une interface homme-machine et un système de supervision pour monitorer et contrôler les processus industriels.</p>
+              <p><strong>Étapes du projet :</strong></p>
+              <ul class="project-points">
+                <li>Configuration de Kepware pour créer un serveur OPC et récupérer les variables de l'automate.</li>
+                <li>Création d'une supervision Panorama connectée au serveur OPC.</li>
+                <li>Réalisation d'une IHM avec Vijeo Designer.</li>
+                <li>Liaison des écrans et de la supervision aux variables automates.</li>
+                <li>Découverte pratique de la communication industrielle et des interfaces.</li>
+              </ul>
+            </div>
+            <div class="project-image">
+              <img src="supervision.png" alt="IHM et système de supervision">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="but3" class="parcours-panel">
+      <h2>BUT 3 – Troisième année</h2>
+      <p>Spécialisation en <strong>automatisme robotique et informatique industrielle</strong>.</p>
+
+      <!-- Contenu des projets BUT 3 -->
+      <div class="but3-project-content">
+        <div id="cobot-vision" class="project-detail active">
+          <h3>Système Cobotique & Vision Industrielle</h3>
+          <div class="hobbies-carousel">
+            <div class="carousel-images">
+              <img src="Cobot.png" alt="Cobot" class="hobby-img">
+              <img src="Cobot1.png" alt="Cobot 1" class="hobby-img">
+              <img src="Cobot2.png" alt="Cobot 2" class="hobby-img">
+              <img src="Cobot3.png" alt="Cobot 3" class="hobby-img">
+            </div>
+          </div>
+          <ul class="project-points">
+            <li>Réaliser une analyse fonctionnelle d'un système cobotique</li>
+            <li>Mettre en œuvre des automates S7-1200 / S7-1500 pour coordonner le process</li>
+            <li>Piloter un variateur pour contrôler la bande transporteuse</li>
+            <li>Exploiter des capteurs IO-Link et superviser les données via Moneo</li>
+            <li>Lire / écrire des informations sur tags RFID</li>
+            <li>Configurer une communication PROFINET multi-équipements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // Gestion des onglets BUT 1/2/3
+  const buttons = document.querySelectorAll('.parcours-btn');
+  const panels = document.querySelectorAll('.parcours-panel');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const year = button.dataset.year;
+
+      // Retirer la classe active de tous les boutons et panneaux
+      buttons.forEach(btn => btn.classList.remove('active'));
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      // Retirer la classe active de tous les détails de projet (sécurise l'état)
+      document.querySelectorAll('.project-detail').forEach(d => d.classList.remove('active'));
+
+      // Ajouter la classe active au bouton et panneau cliqué
+      button.classList.add('active');
+      document.getElementById(year).classList.add('active');
+
+      // Si on ouvre BUT 3, afficher tous les .project-detail qui s'y trouvent
+      if (year === 'but3') {
+        const but3Details = document.querySelectorAll('#but3 .project-detail');
+        but3Details.forEach(d => d.classList.add('active'));
+      }
+
+      // Si on ouvre BUT 2, afficher le projet 'Programmation Maquettes' par défaut
+      if (year === 'but2') {
+        // activer le détail de projet
+        const prog = document.getElementById('prog-maquettes');
+        if (prog) prog.classList.add('active');
+
+        // activer le bouton correspondant dans BUT2
+        const btnsB2 = document.querySelectorAll('.project-btn-but2');
+        btnsB2.forEach(b => b.classList.remove('active'));
+        const defaultBtn = document.querySelector('.project-btn-but2[data-project="prog-maquettes"]');
+        if (defaultBtn) defaultBtn.classList.add('active');
+      }
+    });
+  });
+
+  // Gestion des projets dans BUT 1
+  const projectBtns = document.querySelectorAll('.project-btn');
+  const projectDetails = document.querySelectorAll('.project-detail');
+
+  projectBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projectId = btn.dataset.project;
+
+      // Retirer la classe active de tous les boutons et détails
+      projectBtns.forEach(b => b.classList.remove('active'));
+      projectDetails.forEach(detail => detail.classList.remove('active'));
+
+      // Ajouter la classe active au bouton et détail cliqué
+      btn.classList.add('active');
+      document.getElementById(projectId).classList.add('active');
+    });
+  });
+
+  // Gestion des projets dans BUT 2
+  const projectBtnsB2 = document.querySelectorAll('.project-btn-but2');
+  const projectDetailsB2 = document.querySelectorAll('.but2-project-content .project-detail');
+
+  projectBtnsB2.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const projectId = btn.dataset.project;
+
+      // Retirer la classe active de tous les boutons et détails
+      projectBtnsB2.forEach(b => b.classList.remove('active'));
+      projectDetailsB2.forEach(detail => detail.classList.remove('active'));
+
+      // Ajouter la classe active au bouton et détail cliqué
+      btn.classList.add('active');
+      document.getElementById(projectId).classList.add('active');
+    });
+  });
+</script>
+
+<!-- Floating dev badge + modal -->
+<div id="dev-badge" class="dev-badge" aria-label="À propos du portfolio" title="À propos du portfolio">
+  <span class="dev-icon"><i class="fas fa-code-branch"></i></span>
+</div>
+
+<div id="dev-modal" class="dev-modal" aria-hidden="true">
+  <div class="dev-card" role="dialog" aria-modal="true" aria-labelledby="dev-title">
+    <button class="dev-close" aria-label="Fermer">&times;</button>
+    <h3 id="dev-title">Coulisses — création du portfolio</h3>
+    <p>Ce projet a été créé par moi en utilisant Visual Studio. J'ai appris les bases du HTML et du CSS sur Internet pour pouvoir le réaliser ; j'ai aussi besoin de ces langages pour créer des scripts dans le logiciel que j'utilise au travail.</p>
+    <p>Au départ, il ressemblait à ceci :</p>
+    <img src="oldportfolio.png" alt="Ancien portfolio" style="width:100%; border-radius:8px; margin:10px 0;">
+    <p>En utilisant l'IA qui m'a aidé pour les animations et des bouts de code, il est devenu le portfolio que vous découvrez maintenant.</p>
+    <p><a href="https://github.com/USERNAME/portfolio" target="_blank" rel="noopener noreferrer">Voir le dépôt GitHub</a></p>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const badge = document.getElementById('dev-badge');
+    const modal = document.getElementById('dev-modal');
+    const closeBtn = document.querySelector('.dev-close');
+    badge.addEventListener('click', ()=> {
+      modal.setAttribute('aria-hidden','false');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    closeBtn.addEventListener('click', ()=> {
+      modal.setAttribute('aria-hidden','true');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    modal.addEventListener('click', (e)=> { if (e.target === modal) closeBtn.click(); });
+    document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && modal.classList.contains('open')) closeBtn.click(); });
+
+    // show a small tooltip once to prompt users to click the badge
+    try {
+      const key = 'devBadgeSeen_v1';
+      if (!localStorage.getItem(key)) {
+        const tip = document.createElement('div');
+        tip.className = 'dev-tooltip';
+        tip.textContent = "Coulisses du portfolio → cliquez ici";
+        document.body.appendChild(tip);
+        requestAnimationFrame(()=> tip.classList.add('show'));
+        setTimeout(()=> tip.classList.remove('show'), 3800);
+        setTimeout(()=> tip.remove(), 4200);
+        localStorage.setItem(key, '1');
+      }
+    } catch (e) { }
+  })();
+</script>
+
