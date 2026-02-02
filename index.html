@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Choisissez votre expérience</title>
+  <meta name="description" content="Choisissez la version PC ou Smartphone de mon portfolio.">
+
+  <!-- Design de base -->
+  <style>
+    :root{
+      --bg-dim: 0.6;               /* assombrissement de la vidéo */
+      --glass: rgba(255,255,255,0.14);
+      --glass-hover: rgba(255,255,255,0.26);
+      --text: #ffffff;
+      --accent: #59d4ff;
+      --shadow: rgba(0,0,0,0.35);
+      --radius: 16px;
+      --blur: 14px;
+      --speed: 700ms;              /* vitesse animations principales */
+      --stagger: 120ms;            /* retard entre les éléments */
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Segoe UI Symbol", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+    }
+
+    /* Vidéo pleine page */
+    .background {
+      position: fixed; inset: 0;
+      z-index: -1;
+    }
+    .background::after{
+      content:"";
+      position: absolute; inset:0;
+      background: rgba(0,0,0,var(--bg-dim));
+    }
+    .background video{
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* Contenu centré */
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    /* Carte centrale */
+    .card {
+      width: min(960px, 92vw);
+      border-radius: var(--radius);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      box-shadow: 0 20px 60px var(--shadow);
+      border: 1px solid rgba(255,255,255,0.18);
+      overflow: hidden;
+      padding: clamp(20px, 5vw, 40px);
+    }
+
+    /* Animations d’entrée */
+    .fade-blur {
+      opacity: 0;
+      transform: translateY(12px);
+      filter: blur(6px);
+      animation: in var(--speed) ease forwards;
+    }
+    .fade-blur.delay-1 { animation-delay: calc(var(--stagger) * 1); }
+    .fade-blur.delay-2 { animation-delay: calc(var(--stagger) * 2); }
+    .fade-blur.delay-3 { animation-delay: calc(var(--stagger) * 3); }
+
+    @keyframes in {
+      to { opacity: 1; transform: none; filter: blur(0); }
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 16px 0;
+      font-size: clamp(26px, 3.8vw, 44px);
+      line-height: 1.1;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    }
+
+    .subtitle {
+      margin: 0 0 28px 0;
+      font-size: clamp(14px, 2.4vw, 18px);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: clamp(14px, 3vw, 24px);
+    }
+
+    .choice {
+      position: relative;
+      isolation: isolate;
+      border-radius: var(--radius);
+      padding: clamp(18px, 3.2vw, 28px);
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 240ms ease, background 240ms ease, border-color 240ms ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .choice:hover{
+      transform: translateY(-4px);
+      background: var(--glass-hover);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .choice .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon {
+      width: clamp(36px, 5vw, 54px);
+      height: clamp(36px, 5vw, 54px);
+      display: grid; place-items: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .label {
+      font-size: clamp(18px, 2.7vw, 22px);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .hint {
+      margin-top: 6px;
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(12px, 2.2vw, 14px);
+    }
+
+    .pill {
+      position: absolute;
+      inset: auto 16px 16px auto;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(89,212,255,0.16);
+      border: 1px solid rgba(89,212,255,0.4);
+      color: #dff7ff;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Barre inférieure */
+    .footer {
+      margin-top: clamp(16px, 3vw, 24px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 12.5px;
+    }
+
+    .link {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .link:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 720px){
+      .choices { grid-template-columns: 1fr; }
+      .pill { position: static; display: inline-block; margin-top: 10px; }
+    }
+
+    /* Respect des préférences utilisateur (réduction des animations) */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-blur { animation: none; opacity: 1; transform: none; filter: none; }
+      .choice { transition: none; }
+    }
+  </style>
+
+  <script>
+    // --- Navigation contrôlée ---
+    function goToPC(){ window.location.href = "web_index.html"; }            // adapte si tu renommes
+    function goToSmartphone(){ window.location.href = "SMARTPHONE.html"; }
+
+    // --- Détection mobile optionnelle ---
+    // Active l'auto-redirection en mettant AUTO_REDIRECT_MOBILE = true
+    const AUTO_REDIRECT_MOBILE = false;
+
+    function isMobile() {
+      // Simple heuristique : userAgent + taille d'écran
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const uaMatch =
+        /android|iphone|ipad|ipod|windows phone|mobile/i.test(ua);
+      const smallViewport = Math.min(window.innerWidth, window.innerHeight) <= 600;
+      return uaMatch || smallViewport;
+    }
+
+   
+
+    window.addEventListener("DOMContentLoaded", () => {
+      // Redirection auto (si activée et pas d’override explicite)
+      const q = new URLSearchParams(location.search);
+      const override = q.get("override") === "1";
+      if (AUTO_REDIRECT_MOBILE && !override && isMobile()) {
+        window.location.replace("SMARTPHONE.html?auto=1");
+        return; // évite l’affichage flash
+      }
+      appendOverrideHint();
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Fond vidéo -->
+  <div class="background" aria-hidden="true">
+    <video autoplay muted loop playsinline>
+      <source src="fond2.mp4" type="video/mp4" />
+      <!-- Optionnel : formats alternatifs
+      <source src="fond2.webm" type="video/webm" />
+      -->
+      Votre navigateur ne supporte pas la vidéo de fond.
+    </video>
+  </div>
+
+  <main class="wrap" role="main">
+    <section class="card" aria-label="Choix de l'expérience">
+      <h1 class="title fade-blur">
+        <span style="opacity:0.85;">Bienvenue&nbsp;!</span>
+        <span style="color: var(--accent); filter: drop-shadow(0 0 14px rgba(89,212,255,0.35));">Choisissez votre mode</span>
+      </h1>
+
+      <p class="subtitle fade-blur delay-1">
+        Sélectionnez l’expérience la plus adaptée à votre appareil.
+      </p>
+
+      <div class="choices fade-blur delay-2" role="list">
+        <!-- Carte PC -->
+        <article class="choice" role="listitem" tabindex="0"
+                 aria-label="Ouvrir la version PC"
+                 onclick="goToPC()"
+                 onkeypress="if(event.key==='Enter' || event.key===' ') { event.preventDefault(); goToPC(); }">
+          <div class="row">
+            <div class="icon" aria-hidden="true">💻</div>
+            <div>
+              <div class="label">Version PC</div>
+              <div class="hint">Interface complète, idéale pour grand écran.</div>
+            </div>
+          </div>
+          <span class="pill">Recommandé sur ordinateur</span>
+        </article>
+
+        <!-- Carte Smartphone -->
+        <article class="choice" role="listitem" tabindex="0"
+                 aria-label="Ouvrir la version Smartphone"
+                 onclick="goToSmartphone()"
+                 onkeypress="if(event.key==='Enter' || event.key===' ') { event.preventDefault(); goToSmartphone(); }">
+          <div class="row">
+            <div class="icon" aria-hidden="true">📱</div>
+            <div>
+              <div class="label">Version Smartphone</div>
+              <div class="hint">Navigation simple et rapide, optimisée mobile.</div>
+            </div>
+          </div>
+          <span class="pill">Pour écrans tactiles</span>
+        </article>
+      </div>
+
+      <div class="footer fade-blur delay-3" aria-label="Informations">
+        <div class="left">
+        </div>
+        <div class="right">
+         
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
