@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -421,3 +422,428 @@
 </body>
 </html>
 *** End Patch
+=======
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover">
+	<title>Hichem Aktouf — Mobile Portfolio</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+	<meta name="color-scheme" content="dark">
+	<style>
+		/* Modern mobile-first redesign for SMARTPHONE.html
+			 - Big readable headings
+			 - Strong visual hierarchy, glass cards, gradients
+			 - Bottom navigation, scroll reveal, micro-interactions
+			 - Keeps all content from original pages (parcours, alternance, compétences, hobbies, CV/contact)
+		*/
+
+		@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Roboto+Slab:wght@600;700&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400;700&display=swap');
+
+		:root{
+			--bg:#07131b;
+			--card:rgba(255,255,255,0.04);
+			--glass:rgba(255,255,255,0.06);
+			--accent1:#06b6d4;
+			--accent2:#50c878;
+			--text:#eaf2fb;
+			--muted:#9fb0c6;
+			--radius:14px;
+		}
+
+		html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#04121a);-webkit-font-smoothing:antialiased;color:var(--text);font-family:Inter,system-ui,Segoe UI,Arial}
+		body{overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+		/* background video (kept) */
+		#bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(.35) contrast(.98) saturate(.95)}
+		.bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.25), rgba(2,6,23,0.45));z-index:1}
+
+		/* page container */
+		.page{position:relative;z-index:20;max-width:820px;margin:0 auto;padding:18px 14px 100px}
+
+		/* Top header: centered name, photo, subtitle */
+		.brand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:12px;margin-top:6px}
+		.avatar{width:120px;height:120px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);box-shadow:0 14px 40px rgba(2,6,23,0.6);flex:0 0 120px}
+		.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+		.title{font-family:'Dancing Script', Roboto Slab, serif;font-weight:700;font-size:2.1rem;line-height:1;text-align:center}
+		.subtitle{color:var(--muted);font-size:1rem;margin-top:4px;text-align:center}
+
+		/* Card style */
+		.stack{display:grid;gap:14px;margin-top:14px}
+		/* Sections use transparent backgrounds now (no boxed background). Keep subtle depth with shadow only. */
+		.card{background:transparent;border-radius:var(--radius);padding:14px;border:0;box-shadow:0 10px 30px rgba(2,6,23,0.55)}
+
+		.section-head{display:flex;flex-direction:column;align-items:center;gap:6px;margin:18px 0 6px;justify-content:center}
+		.section-head i{font-size:1.12rem;color:var(--accent1)}
+		.section-head h2{font-family:'Dancing Script', Poppins, Roboto Slab, serif;font-size:2.1rem;margin:0;font-weight:700;line-height:1;color:var(--text);text-shadow:0 10px 30px rgba(6,182,212,0.06)}
+		.section-head h2::after{content:"";display:block;margin:10px auto 0;height:4px;width:84px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));opacity:0.98}
+		.section-p{color:var(--muted);font-size:0.95rem;margin:6px 0}
+
+		/* Big headings for major sections */
+		.mega-title{font-size:1.6rem;font-weight:800;font-family:Poppins, Roboto Slab;margin:18px 4px 6px;text-align:center;font-style:italic;letter-spacing:0.6px;text-shadow:0 8px 30px rgba(5,96,102,0.08);animation:popIn .7s cubic-bezier(.2,.9,.2,1) both}
+		@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.995)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+		/* Projects & images */
+		.project-grid{display:grid;gap:10px}
+		.project{display:flex;gap:10px;align-items:flex-start}
+		.project img{width:120px;height:84px;object-fit:cover;border-radius:10px;flex:0 0 120px}
+		.project .p-body{flex:1}
+
+		/* About (presentation) larger and centered */
+		#about .section-p{font-size:1.06rem;text-align:center;margin:10px 0 0}
+
+		/* Parcours: center sub-titles and separate projects */
+		#parcours h3{ text-align:center; margin:10px 0 12px }
+		#parcours .project-grid{ gap:14px }
+		/* Center project inline titles and add spacing between project blocks */
+		#parcours .project-grid .project .p-body .section-p strong{display:block;text-align:center;font-size:1rem;margin-bottom:8px}
+		#parcours .project-grid{margin-bottom:18px}
+		#parcours .project{ margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed rgba(255,255,255,0.035) }
+		#parcours .project:last-child{ margin-bottom:0; padding-bottom:0; border-bottom:0 }
+
+		/* Skills list as animated circular badges */
+		.skills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:10px 0}
+		.skill{width:160px;min-height:120px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));color:var(--text);font-size:0.86rem;font-weight:700;text-align:center;padding:12px;box-shadow:0 10px 30px rgba(2,6,23,0.45);transform:translateY(0);transition:transform .28s ease,box-shadow .28s ease}
+		.skill:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+		@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+		.skill.animate{animation:floaty 4s ease-in-out infinite}
+		.skill-icon{font-size:1.6rem;margin-bottom:8px}
+		.skill-title{font-weight:800;font-size:0.95rem}
+		.skill-desc{font-size:0.78rem;color:var(--muted);margin-top:6px;line-height:1.1}
+
+		/* Hobbies gallery */
+		.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+		.gallery img{width:100%;height:110px;object-fit:cover;border-radius:10px}
+
+		/* CV card */
+		.cv-row{display:flex;gap:10px;align-items:center}
+		.cv-row img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+		.cta-row{display:flex;gap:8px;margin-top:10px}
+		.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#052426;padding:10px 12px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(6,182,212,0.12)}
+
+		/* Bottom navigation */
+		.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;z-index:60;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;display:flex;gap:6px;align-items:center;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+		.nav-btn{color:var(--muted);font-size:0.95rem;padding:8px 10px;border-radius:999px;display:inline-flex;gap:8px;align-items:center}
+		.nav-btn.active{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#052426}
+
+		/* Reveal on scroll */
+		.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.9,.2,1),transform .6s cubic-bezier(.2,.9,.2,1)}
+		.reveal.in-view{opacity:1;transform:translateY(0)}
+		/* Stronger reveal for clearer appearance */
+		.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.2,.9,.2,1),transform .65s cubic-bezier(.2,.9,.2,1)}
+		.reveal.in-view{opacity:1;transform:translateY(0);filter:drop-shadow(0 12px 40px rgba(6,182,212,0.03))}
+
+		/* small screens tweaks */
+		@media (max-width:420px){
+			.avatar{width:70px;height:70px;border-radius:14px}
+			.title{font-size:1.25rem}
+			.project img{width:96px;height:68px}
+		}
+
+		/* ripple for .btn */
+		.btn{position:relative;overflow:hidden}
+		.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.18);transform:scale(0);animation:rip .55s ease-out}
+		@keyframes rip{to{transform:scale(4);opacity:0}}
+
+	</style>
+</head>
+<body>
+	<video id="bg-video" autoplay muted loop playsinline>
+		<source src="fond2.mp4" type="video/mp4">
+	</video>
+	<div class="bg-overlay" aria-hidden="true"></div>
+
+	<main class="page">
+		<header class="brand">
+			<div class="title">Hichem Aktouf</div>
+			<div class="avatar"><img src="photoCV.png" alt="Photo Hichem"></div>
+			<div class="subtitle">Étudiant — GENIE ÉLECTRIQUE & INFORMATIQUE INDUSTRIELLE • Alternant ARaymond</div>
+		</header>
+
+		<h1 class="mega-title">Bienvenue — Mon portfolio mobile</h1>
+
+		<div class="stack">
+			<!-- About -->
+			<div class="section-head"><i class="fas fa-user"></i><h2>Présentation</h2></div>
+			<section class="card reveal" id="about">
+				<p class="section-p">Passionné par les technologies concrètes, je conçois des solutions à l’intersection de l’électronique, de l’informatique industrielle et de l’automatisation ; créatif et curieux, j’allie la rigueur d’ingénieur à un sens aigu du détail visuel et sonore.</p>
+			</section>
+
+			<!-- Competences -->
+			<div class="section-head"><i class="fas fa-tools"></i><h2>Compétences</h2></div>
+			<section class="card reveal" id="skills">
+				<div class="skills">
+					<div class="skill">
+						<div class="skill-icon">🔧</div>
+						<div class="skill-title">Programmation d’automates</div>
+						<div class="skill-desc">Maîtrise des langages LD, Grafcet, ST. Logiciels : EcoStruxure, SoMachine, TIA Portal.</div>
+					</div>
+					<div class="skill">
+						<div class="skill-icon">🛠️</div>
+						<div class="skill-title">Électronique & Conception</div>
+						<div class="skill-desc">Conception et routage PCB sous KiCad. Soudage CMS et traversant.</div>
+					</div>
+					<div class="skill">
+						<div class="skill-icon">⚙️</div>
+						<div class="skill-title">Programmation embarquée</div>
+						<div class="skill-desc">Arduino, FPGA, Raspberry Pi. Langages : C / C++, Python.</div>
+					</div>
+					<div class="skill">
+						<div class="skill-icon">🏠</div>
+						<div class="skill-title">Domotique & Énergie</div>
+						<div class="skill-desc">Contrôle de systèmes domotiques — Certifié KNX. Habilitation électrique B2V.</div>
+					</div>
+					<div class="skill">
+						<div class="skill-icon">🤖</div>
+						<div class="skill-title">Robotique industrielle</div>
+						<div class="skill-desc">Programmation et manipulation : Stäubli, Fanuc (formation Stäubli).</div>
+					</div>
+					<div class="skill">
+						<div class="skill-icon">💻</div>
+						<div class="skill-title">Développement & IHM</div>
+						<div class="skill-desc">HTML/CSS et création d’IHM sous TwinCAT HMI; configuration et supervision.</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Parcours -->
+			<div class="section-head"><i class="fas fa-graduation-cap"></i><h2>Parcours BUT GEII</h2></div>
+			<section class="card reveal" id="parcours">
+				<div>
+					<h3 style="margin:6px 0 10px;font-weight:700">BUT 1 – Première année</h3>
+					<p class="section-p">Une année tronc-commun qui permet de découvrir les bases des grands domaines du génie électrique et informatique industriel.</p>
+					<p class="section-p"><strong>Projet : Robot suiveur de ligne</strong><br>Objectif : Concevoir et réaliser un robot autonome capable de suivre une ligne au sol.</p>
+					<div class="project-grid">
+						<article class="project">
+							<img src="robot.png" alt="Robot suiveur">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Conception électronique sur KiCad</li>
+									<li>Calculs et dimensionnement : choix des composants</li>
+									<li>Fabrication, brasage &amp; tests des cartes</li>
+									<li>Assemblage des cartes, moteurs, capteurs</li>
+									<li>Programmation en C++ sur microcontrôleur</li>
+									<li>Validation &amp; optimisation : tests sur parcours, réglages PID éventuels</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+					<p class="section-p"><strong>Projet 2 : SAÉ Armoire Électrique Industrielle</strong><br>Objectif : Câbler et mettre en service une armoire électrique industrielle complète à partir d'un schéma réalisé en théorie.</p>
+					<div class="project-grid">
+						<article class="project">
+							<img src="armoire.png" alt="Armoire électrique">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Conception du schéma électrique</li>
+									<li>Choix du matériel et implantation des composants</li>
+									<li>Câblage de l'armoire</li>
+									<li>Habilitation électrique</li>
+									<li>Dépannage, tests, mesures et vérifications</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+					<h3 style="margin:12px 0 10px;font-weight:700">BUT 2 – Deuxième année</h3>
+					<p class="section-p">Approfondissement des connaissances avec des spécialisations progressives (Automatisme et informatique industrielle).</p>
+					<p class="section-p"><strong>Projet 1 : Programmation de différentes maquettes</strong><br>Objectif : Programmer et gérer différentes maquettes contenant différents automates avec différents protocoles de communications.</p>
+					<div class="project-grid">
+						<article class="project">
+							<img src="automation.jpg" alt="Maquettes automation">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Étude des différents automates et leurs architectures</li>
+									<li>Apprentissage des protocoles de communication (Modbus, CAN, Profibus)</li>
+									<li>Programmation en langage ladder et structuré</li>
+									<li>Configuration des maquettes et connexions réseau</li>
+									<li>Tests de communication inter-automates</li>
+									<li>Optimisation et documentation des solutions</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+					<p class="section-p"><strong>Projet 2 : IHM et Supervision</strong><br>Objectif : Concevoir et développer une interface homme-machine et un système de supervision pour monitorer et contrôler les processus industriels.</p>
+					<div class="project-grid">
+						<article class="project">
+							<img src="supervision.png" alt="IHM supervision">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Configuration de Kepware pour créer un serveur OPC et récupérer les variables de l'automate</li>
+									<li>Création d'une supervision Panorama connectée au serveur OPC</li>
+									<li>Réalisation d'une IHM avec Vijeo Designer</li>
+									<li>Liaison des écrans et de la supervision aux variables automates</li>
+									<li>Découverte pratique de la communication industrielle et des interfaces</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+					<h3 style="margin:12px 0 8px;font-weight:700">BUT 3 – Troisième année</h3>
+					<p class="section-p">Spécialisation en automatisme et informatique industrielle.</p>
+					<p class="section-p"><strong>Projet : Système Cobotique &amp; Vision Industrielle</strong> : Réaliser une analyse fonctionnelle d'un système cobotique et mettre en œuvre des automates S7-1200 / S7-1500 pour coordonner le process.</p>
+					<ul class="section-p">
+						<li>Mettre en œuvre des automates S7-1200 / S7-1500 pour coordonner le process</li>
+						<li>Piloter un variateur pour contrôler la bande transporteuse</li>
+						<li>Exploiter des capteurs IO-Link et superviser les données via Moneo</li>
+						<li>Lire / écrire des informations sur tags RFID</li>
+						<li>Configurer une communication PROFINET multi-équipements</li>
+					</ul>
+						<div style="margin-top:8px;display:flex;gap:12px;justify-content:center;align-items:flex-start;flex-wrap:wrap">
+							<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center">
+								<img src="Cobot.png" alt="Cobot projet" style="width:120px;height:86px;object-fit:cover;border-radius:8px">
+								<img src="Cobot1.png" alt="Cobot vue 1" style="width:120px;height:86px;object-fit:cover;border-radius:8px">
+								<img src="Cobot2.png" alt="Cobot vue 2" style="width:120px;height:86px;object-fit:cover;border-radius:8px">
+							</div>
+						</div>
+				</div>
+			</section>
+
+			<!-- Alternance -->
+			<div class="section-head"><i class="fas fa-industry"></i><h2>Alternance — ARaymond</h2></div>
+			<section class="card reveal" id="alternance">
+				<div style="text-align:center;margin-top:6px">
+					<div style="font-weight:800;font-size:1.02rem;margin-bottom:6px">ARaymond France</div>
+					<p class="section-p" style="max-width:680px;margin:0 auto">spécialisée dans les solutions d’assemblage et de fixation pour l’automobile, l’industrie et l’énergie. Elle fait partie du groupe ARaymond, qui compte plus de 8 500 collaborateurs dans 25 pays et mise sur l’innovation pour accompagner la transition vers la mobilité électrique.</p>
+					<img src="ARaymond.jpg" alt="ARaymond" style="width:100%;max-width:520px;border-radius:10px;margin-top:10px">
+				</div>
+				<div style="margin-top:12px">
+					<h4 style="margin:6px 0 8px;font-weight:700">Projet 1 — Septembre à Octobre 2024 : Programmation et supervision d’une maquette formeuse de boîtes (projet test)</h4>
+					<div class="project-grid">
+						<article class="project">
+							<img src="Araymond-test.jpg" alt="Maquette formeuse" style="width:120px;height:84px;object-fit:cover;border-radius:10px;flex:0 0 120px">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Analyser et concevoir le cycle de la machine</li>
+									<li>Programmer 2 automates (principal et setup) qui communiquent via Modbus RTU</li>
+									<li>Développer une IHM avec Vijeo Designer et établir la communication avec l’automate</li>
+									<li>Exploiter les documentations techniques et prendre en compte les aspects de sécurité</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+					<h4 style="margin:12px 0 8px;font-weight:700">Projet 2 — Novembre 2024 à Août 2026 : Migration et optimisation de la supervision (sites de Grenoble)</h4>
+					<div class="project-grid">
+						<article class="project">
+							<img src="ARaymond-main.jpg" alt="Migration supervision" style="width:120px;height:84px;object-fit:cover;border-radius:10px;flex:0 0 120px">
+							<div class="p-body">
+								<ul class="section-p">
+									<li>Analyser la GTC existante et identifier ses limites</li>
+									<li>Choisir un nouveau logiciel adapté aux besoins de l’entreprise</li>
+									<li>Migrer la GTC vers ce nouveau logiciel en assurant la continuité des services</li>
+									<li>Apporter des améliorations pour optimiser la gestion des systèmes techniques</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Hobbies -->
+			<div class="section-head"><i class="fas fa-music"></i><h2>Centres d'intérêts</h2></div>
+			<section class="card reveal" id="hobbies">
+				<div style="text-align:center">
+					<h3 style="margin:6px 0 6px;font-weight:700">Musique</h3>
+					<p class="section-p" style="margin:0 auto 10px;max-width:720px;text-align:center">En tant que responsable, j'assure l'organisation des répétitions, la coordination des musiciens, la préparation des sets et la gestion des prestations. Notre groupe se produit lors de divers événements — soirées, concerts, événements culturels et privés — avec une approche carrée, fiable et professionnelle, même dans une ambiance détendue. Entre créativité et gestion d'équipe, cette aventure renforce mon leadership, mon sens de l'organisation et ma capacité à faire avancer un collectif vers un objectif commun.</p>
+					<div class="gallery" style="margin-top:6px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+						<img src="mgtrespo.jpeg" alt="responsable" style="width:140px;height:100px;object-fit:cover;border-radius:8px">
+						<img src="mgtguitare.jpeg" alt="guitare" style="width:140px;height:100px;object-fit:cover;border-radius:8px">
+						<img src="mgtpiano.jpeg" alt="piano" style="width:140px;height:100px;object-fit:cover;border-radius:8px">
+						<img src="hichemGuitare.png" alt="hichem guitare" style="width:140px;height:100px;object-fit:cover;border-radius:8px">
+					</div>
+				</div>
+				<div style="text-align:center;margin-top:12px">
+					<h3 style="margin:6px 0 10px;font-weight:700">Photographie de la nature et rando</h3>
+					<div style="margin-top:6px">
+						<video autoplay muted loop playsinline style="width:100%;border-radius:10px">
+							<source src="des.mp4" type="video/mp4">
+						</video>
+					</div>
+				</div>
+			</section>
+
+			<!-- CV & Contact -->
+			<div class="section-head"><i class="fas fa-file"></i><h2>CV & Contact</h2></div>
+			<section class="card reveal" id="cv">
+				<div class="cv-row">
+					<img src="mignatureCV.png" alt="mini CV">
+					<div>
+						<div style="font-weight:700">Curriculum Vitae</div>
+						<div class="section-p">Téléchargez mon CV complet (PDF) ou contactez-moi directement.</div>
+						<div class="cta-row">
+							<a class="btn" href="NewCV.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Voir le CV</a>
+							<a class="btn" href="mailto:aktoufhichem2002@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+						</div>
+					</div>
+				</div>
+
+				<div style="margin-top:12px;color:var(--muted);font-size:0.9rem">Téléphone: <a href="tel:+33751395064" style="color:var(--text);text-decoration:none">+33 7 51 39 50 64</a> — <a href="https://www.linkedin.com/in/hichem-aktouf-6b9915239/" target="_blank" style="color:var(--text);text-decoration:none">LinkedIn</a></div>
+			</section>
+
+			<footer style="text-align:center;color:var(--muted);font-size:0.85rem;padding:8px 0">© Hichem Aktouf</footer>
+		</div>
+
+	</main>
+
+	<!-- Bottom navigation -->
+	<nav class="bottom-nav" role="navigation" aria-label="Navigation section">
+		<button class="nav-btn active" data-target="about"><i class="fas fa-user"></i></button>
+		<button class="nav-btn" data-target="skills"><i class="fas fa-tools"></i></button>
+		<button class="nav-btn" data-target="parcours"><i class="fas fa-graduation-cap"></i></button>
+		<button class="nav-btn" data-target="alternance"><i class="fas fa-industry"></i></button>
+		<button class="nav-btn" data-target="hobbies"><i class="fas fa-music"></i></button>
+	</nav>
+
+	<script>
+		// Smooth scrolling and scrollspy for bottom nav
+		document.querySelectorAll('.nav-btn').forEach(btn=>{
+			btn.addEventListener('click', (e)=>{
+				const t = btn.dataset.target;
+				const el = document.getElementById(t);
+				if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); }
+			});
+		});
+
+		// Reveal on scroll
+		const io = new IntersectionObserver((entries)=>{
+			entries.forEach(ent=>{
+				if(ent.isIntersecting){ ent.target.classList.add('in-view'); io.unobserve(ent.target); }
+			});
+		},{threshold:0.12});
+		document.querySelectorAll('.reveal').forEach((r,i)=>{ r.style.transitionDelay = (i*80)+'ms'; io.observe(r); });
+
+		// Add floating animation delays to skills badges
+		document.querySelectorAll('.skill').forEach((s,idx)=>{
+			s.classList.add('animate');
+			s.style.animationDelay = (idx * 220) + 'ms';
+		});
+
+		// Scrollspy: highlight nav button for visible section
+		const sections = ['about','skills','parcours','alternance','hobbies','cv'];
+		const navButtons = Array.from(document.querySelectorAll('.nav-btn'));
+		function onScrollSpy(){
+			const mid = window.innerHeight/2 + window.scrollY;
+			let active = 'about';
+			sections.forEach(s=>{
+				const el = document.getElementById(s);
+				if(el){ const top = el.getBoundingClientRect().top + window.scrollY; if(mid >= top) active = s; }
+			});
+			navButtons.forEach(b=> b.classList.toggle('active', b.dataset.target === active));
+		}
+		window.addEventListener('scroll', onScrollSpy, {passive:true});
+		onScrollSpy();
+
+		// Ripple on buttons
+		document.querySelectorAll('.btn').forEach(b=>{
+			b.addEventListener('click', function(e){
+				const s = document.createElement('span'); s.className='ripple';
+				const rect = b.getBoundingClientRect();
+				const size = Math.max(rect.width, rect.height); s.style.width = s.style.height = size+'px';
+				s.style.left = (e.clientX - rect.left - size/2)+'px'; s.style.top = (e.clientY - rect.top - size/2)+'px';
+				b.appendChild(s); setTimeout(()=> s.remove(),520);
+			});
+		});
+
+	</script>
+</body>
+</html>
+*** End Patch
+>>>>>>> 8ae3eb6b43ef2a069022e10be730fd6c01e9ffa3
