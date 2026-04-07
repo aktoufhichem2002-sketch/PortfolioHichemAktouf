@@ -1489,3 +1489,18 @@ h3 {
     .contact-stack { display: none; }
     .cv-bar { display: none; }
 }
+
+/* AlternanceCat animation */
+#AlternanceCat {
+  position: fixed;
+  bottom: 0;
+  right: 1110px;
+  z-index: 10;
+  animation: slideCat 20s infinite;
+}
+
+@keyframes slideCat {
+  0% { transform: translateY(180px); }
+  50% { transform: translateY(0px); }
+  100% { transform: translateY(180px); }
+}
